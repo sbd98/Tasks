@@ -1,4 +1,4 @@
-setwd("~/Desktop/Evolution/Programming/Task_02")
+setwd(~/Desktop/Evolution/Tasks/Task02)
 Data <- read.csv("http://jonsmitchell.com/data/beren.csv", stringsAsFactors=F)
 length(Data)
 nrow(Data)
@@ -43,17 +43,26 @@ par(las=1, mar=c(5, 5, 1, 1), mgp=c(2, 0.5, 0), tck=-0.01)
 plot(as.numeric(names(totalFeed)), totalFeed, type="b", pch=16, xlab="age in days", ylab="ounces of milk")
 abline(h=mean(totalFeed), lty=2, col='red')
 
+
+#
+setwd(~/Desktop/Evolution/Tasks/Task02)
+beren3 <- read.csv("beren_new.csv", stringsAsFactors=F)
+
 Naps <- which(beren3$event == "nap")
 beren4 <- beren3[Naps,]
 head(beren4)
-beren4[5:6]
-beren4[7:8]
+
+#
 beren4$end_minute <- beren4$end_minute / 60
 beren4$start_minute <- beren4$start_minute / 60
 beren4$napstart <- beren4$start_hour + beren4$start_minute
 beren4$napend <- beren4$end_hour + beren4$end_minute
 beren4$naplength <- beren4$napend - beren4$napstart
-naptime <- tapply(beren4$day[Naps], beren4$age [Naps], sum)
+
+naptime <- tapply(beren4$naplength, beren4$age, sum, na.rm=T)
+
+#
 par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5 ,0), tck=-.01) 
 plot(as.numeric(names(naptime)), naptime, type="b", pch=16, xlab="day", ylab="naptime")
+
 cor.test(beren4$age, naplength)
