@@ -65,4 +65,4 @@ naptime <- tapply(beren4$naplength, beren4$age, sum, na.rm=T)
 par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5 ,0), tck=-.01) 
 plot(as.numeric(names(naptime)), naptime, type="b", pch=16, xlab="day", ylab="naptime")
 
-cor.test(beren4$age, naplength)
+cor.test(beren4$naplength)
