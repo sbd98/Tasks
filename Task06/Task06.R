@@ -76,5 +76,7 @@ model3 <-coal_model(10, 50)+
 	sumstat_nucleotide_div()
 stats <- simulate(model3, nsim=40)	
 
-mean<- sapply(stats, function(x) mean(x$pi))
+mean_pi <- sapply(stats, function(x) mean(x$pi))
 theta <- sapply(stats, function(x) x$pars[["theta"]])
+plot(mean_pi, theta)
+abline(lm(mean_pi ~ theta))
