@@ -16,3 +16,4 @@ dim(data)
 
 svl <- setNames(data$svl, rownames(data))
 Ancestors <- fastAnc(tree, svl[trees$tip.label], vars=TRUE, CI=TRUE)
+# I am still getting an error with the Ancestors code so this is all I got 
