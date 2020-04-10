@@ -24,3 +24,6 @@ my_data2 <- read_excel("DFTD samples 2006-2011:Anthropogenic .xls")
 
 
 plot(my_data2$year2, my_data2$Tetraploidy2, type="h", xlab="Year", ylab="Tetraploid Samples", main="Tetraploid Tumor Prevalence in Devils")
+pdf("Tetraploid.pdf", height=6, width=8)
+plot(my_data2$year2, my_data2$Tetraploidy2, type="h", xlab="Year", ylab="Tetraploid Samples", main="Tetraploid Tumor Prevalence in Devils")
+dev.off()
